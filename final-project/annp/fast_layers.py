@@ -12,7 +12,6 @@ except ImportError:
 
 from .im2col import *
 
-
 def conv_forward_im2col(x, w, b, conv_param):
     """
     A fast implementation of the forward pass for a convolutional layer
@@ -45,7 +44,7 @@ def conv_forward_im2col(x, w, b, conv_param):
 def conv_forward_strides(x, w, b, conv_param):
     N, C, H, W = x.shape
     F, _, HH, WW = w.shape
-    stride, pad = conv_param["stride"], conv_param["pad"]
+    stride, pad = conv_param["stride"], int(conv_param["pad"])
 
     # Check dimensions
     # assert (W + 2 * pad - WW) % stride == 0, 'width does not work'

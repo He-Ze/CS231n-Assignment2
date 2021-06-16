@@ -510,7 +510,6 @@ def conv_backward_naive(dout, cache):
     db=np.sum(np.sum(np.sum(dout,axis=3),axis=2),axis=0)
     dw=np.zeros_like(w)
     dx=np.zeros_like(x)
-    
     pad_width=conv_param.get('pad',0)
     stride=conv_param.get('stride',1)
     x_pad=np.lib.pad(x,((0,0),(0,0),(pad_width,pad_width),(pad_width,pad_width)),'constant')
